@@ -32,7 +32,7 @@ const Authentication = () => {
             <LoginForm />
           </Container>
           <Container width="80%">
-            <CustomDivider color="lightgrey" margin="20px 10px" />
+            <CustomDivider margin="20px 10px" />
             <Text mb="10px">Don't have an account yet?</Text>
             <Text mb="10px" color="blue" cursor="pointer">
               Sign Up For Factzz

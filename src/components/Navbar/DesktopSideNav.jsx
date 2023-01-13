@@ -31,13 +31,14 @@ import { setUserAuthentication } from "../../redux/UserReducer";
 
 const DesktopSideNav = () => {
   const { index } = useSelector((state) => state.activePages.activePage);
+  const { mode } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   return (
     <DesktopSideNavContainer justify="space-evenly">
       <ImageAvatar src={logo} />
-      <CustomDivider color="#eee" />
+      <CustomDivider />
       <DesktopSideNavIcon>
         <Avatarwrapper
           onClick={() => {
@@ -50,7 +51,9 @@ const DesktopSideNav = () => {
           }}
           active={index === 0 ? true : false}
         >
-          <ImageAvatar src={index === 0 ? HomeIconWhite : HomeIconBlack} />
+          <ImageAvatar
+            src={index === 0 || mode === "dark" ? HomeIconWhite : HomeIconBlack}
+          />
         </Avatarwrapper>
         <IconInfo>Home</IconInfo>
       </DesktopSideNavIcon>
@@ -66,7 +69,9 @@ const DesktopSideNav = () => {
           }}
           active={index === 1 ? true : false}
         >
-          <ImageAvatar src={index === 1 ? CompassWhite : CompassBlack} />
+          <ImageAvatar
+            src={index === 1 || mode === "dark" ? CompassWhite : CompassBlack}
+          />
         </Avatarwrapper>
         <IconInfo>Explore</IconInfo>
       </DesktopSideNavIcon>
@@ -83,7 +88,9 @@ const DesktopSideNav = () => {
           active={index === 2 ? true : false}
         >
           <ImageAvatar
-            src={index === 2 ? LiveVideoWhite : LiveVideoBlack}
+            src={
+              index === 2 || mode === "dark" ? LiveVideoWhite : LiveVideoBlack
+            }
             width="20px"
           />
         </Avatarwrapper>
@@ -102,7 +109,9 @@ const DesktopSideNav = () => {
           active={index === 3 ? true : false}
         >
           <ImageAvatar
-            src={index === 3 ? EcommerceWhite : EcommerceBlack}
+            src={
+              index === 3 || mode === "dark" ? EcommerceWhite : EcommerceBlack
+            }
             width="20px"
           />
         </Avatarwrapper>
@@ -120,7 +129,9 @@ const DesktopSideNav = () => {
           }}
           active={index === 4 ? true : false}
         >
-          <ImageAvatar src={index === 4 ? MessageWhite : MessageBlack} />
+          <ImageAvatar
+            src={index === 4 || mode === "dark" ? MessageWhite : MessageBlack}
+          />
         </Avatarwrapper>
         <IconInfo>Inbox</IconInfo>
       </DesktopSideNavIcon>
@@ -137,7 +148,7 @@ const DesktopSideNav = () => {
           active={index === 5 ? true : false}
         >
           <ImageAvatar
-            src={index === 5 ? BookmarkWhite : BookmarkBlack}
+            src={index === 5 || mode === "dark" ? BookmarkWhite : BookmarkBlack}
             width="20px"
           />
         </Avatarwrapper>
@@ -155,11 +166,15 @@ const DesktopSideNav = () => {
           }}
           active={index === 6 ? true : false}
         >
-          <ImageAvatar src={index === 6 ? DashboardWhite : DashboardBlack} />
+          <ImageAvatar
+            src={
+              index === 6 || mode === "dark" ? DashboardWhite : DashboardBlack
+            }
+          />
         </Avatarwrapper>
         <IconInfo>Dashboard</IconInfo>
       </DesktopSideNavIcon>
-      <CustomDivider color="#eee" />
+      <CustomDivider />
       <DesktopSideNavIcon>
         <Avatarwrapper
           onClick={() => {
@@ -167,7 +182,12 @@ const DesktopSideNav = () => {
             navigate("/");
           }}
         >
-          <LogoutIcon sx={{ color: "black", fontSize: "25px" }} />
+          <LogoutIcon
+            sx={{
+              color: mode === "light" ? "black" : "white",
+              fontSize: "25px",
+            }}
+          />
         </Avatarwrapper>
         <IconInfo>Logout</IconInfo>
       </DesktopSideNavIcon>
